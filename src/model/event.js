@@ -1,5 +1,3 @@
-import { error } from 'util';
-
 'use strict';
 
 const _ = require('lodash');

@@ -10,14 +10,19 @@ exports.create = async ({token, model}) => {
 
     bot.start((ctx) => ctx.reply('Welcome!'));
 
-    bot.command('help', (ctx) => {
-        console.log(ctx);
-        ctx.reply('Try send a sticker!');
+    bot.use(async (ctx, next) => {
+        if (/^\//.test(ctx.message)) {
+            const {first_name, last_name} = ctx.from;
+            debug(`received command ${ctx.message} from ${first_name} ${last_name}`);
+        }
+
+        await next();
     });
 
-    bot.command('add', commands.playerAdd(model));
-    bot.command('remove', commands.playerRemove(model));
-    bot.command('info', commands.gameInfo(model));
+    bot.command('help', commands.help(model)); // /help
+    bot.command('add', commands.playerAdd(model)); // /add - add player to game
+    bot.command('remove', commands.playerRemove(model)); // /remove - remove player from game
+    bot.command('info', commands.gameInfo(model)); // /info - get game info
 
     bot.startPolling();
 };

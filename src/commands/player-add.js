@@ -4,16 +4,10 @@ const errors = require('../errors/index');
 const answers = require('../../config/answers/commands/player-add');
 const utils = require('../utils');
 
-const debug = require('debug')('src:commands:player-add');
-
 module.exports = (model) => {
     const replier = utils.createReplier(answers);
 
     return async (ctx) => {
-        const {first_name, last_name} = ctx.from;
-
-        debug(`received command /add from ${first_name} ${last_name}`);
-
         const player = new model.User(ctx.from);
         let answer = null;
 

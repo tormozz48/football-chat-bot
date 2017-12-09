@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const utils = require('../../../src/utils');
 const common = require('./common');
 
 module.exports = _.merge({}, common, {
@@ -9,7 +10,7 @@ module.exports = _.merge({}, common, {
             const {date, players} = event;
 
             return [
-                `Дата игры: ${date}`,
+                `Дата игры: ${utils.formateDate(date)}`,
                 `Участники:`,
                 `${players.map((player, index) => `${index + 1}: ${player.fullName()} \n`)}`,
                 `Всего: ${event.getPlayersAmount()}`,

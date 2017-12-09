@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const moment = require('moment');
 
 exports.createReplier = (answers) => {
     function getRandomReply(groupKey) {
@@ -12,4 +13,8 @@ exports.createReplier = (answers) => {
         replaySuccess: () => getRandomReply('success'),
         replyError: () => getRandomReply('error')
     };
+};
+
+exports.formateDate = (date) => {
+    return moment(date).format('DD-MM-YYYY');
 };

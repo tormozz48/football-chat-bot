@@ -1,0 +1,42 @@
+{
+  "name": "football-chat-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for football weekend chat",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start-dev": "node index.js",
+    "start-prod": "NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tormozz48/football-chat-bot.git"
+  },
+  "keywords": [
+    "football",
+    "telegram",
+    "chat",
+    "boot",
+    "weekend",
+    "api",
+    "funny"
+  ],
+  "author": "andrey.kuznetsov48@yandex.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tormozz48/football-chat-bot/issues"
+  },
+  "homepage": "https://github.com/tormozz48/football-chat-bot#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "config": "^1.28.1",
+    "debug": "^3.1.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.13.6",
+    "telegraf": "^3.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-gemini-testing": "^2.7.0"
+  }
+}

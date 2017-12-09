@@ -1,23 +1,23 @@
 'use strict';
 
 const Telegraf = require('telegraf');
+const TelegrafLogger = require('telegraf-logger');
+const commandParts = require('telegraf-command-parts');
 const commands = require('./commands');
 
 const debug = require('debug')('src:bot');
 
-exports.create = async ({token, model}) => {
+exports.create = ({token, model}) => {
     const bot = new Telegraf(token);
 
-    bot.start((ctx) => ctx.reply('Welcome!'));
-
-    bot.use(async (ctx, next) => {
-        if (/^\//.test(ctx.message)) {
-            const {first_name, last_name} = ctx.from;
-            debug(`received command ${ctx.message} from ${first_name} ${last_name}`);
-        }
-
-        await next();
+    const logger = new TelegrafLogger({
+        format: '%updateType => @%username %firstName %lastName (%fromId): <%updateSubType> %content'
     });
+
+    bot.use(logger.middleware());
+    bot.use(commandParts());
+
+    bot.start(commands.start(model, bot));
 
     bot.command('help', commands.help(model)); // /help
     bot.command('add', commands.playerAdd(model)); // /add - add player to game
@@ -25,4 +25,6 @@ exports.create = async ({token, model}) => {
     bot.command('info', commands.gameInfo(model)); // /info - get game info
 
     bot.startPolling();
+
+    return bot;
 };

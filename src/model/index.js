@@ -6,6 +6,7 @@ const Promise = require('bluebird');
 
 const EventSchema = require('./event');
 const UserSchema = require('./user');
+const ChatSchema = require('./chat');
 
 mongoose.Promise = Promise;
 const debug = require('debug')('src:model:index');
@@ -41,6 +42,7 @@ exports.initialize = async () => {
 
     const User = mongoose.model('User', UserSchema);
     const Event = mongoose.model('Event', EventSchema);
+    const Chat = mongoose.model('Chat', ChatSchema);
 
-    return {User, Event};
+    return {User, Event, Chat};
 };

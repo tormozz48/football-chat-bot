@@ -1,5 +1,6 @@
 'use strict';
 
+exports.start = require('./start');
 exports.help = require('./help');
 
 exports.playerAdd = require('./player-add');

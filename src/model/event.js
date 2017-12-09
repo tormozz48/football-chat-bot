@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = require('./user');
+const ChatSchema = require('./chat');
 const errors = require('../errors/index');
 
 const MAX_PLAYERS_AMOUNT = 12
@@ -14,7 +15,8 @@ const EventSchema = new Schema({
     date: {type: Date, default: new Date()},
     players: {type: [UserSchema], default: []},
     players_max: {type: Number, default: MAX_PLAYERS_AMOUNT},
-    active: {type: Boolean, default: true}
+    active: {type: Boolean, default: true},
+    chat: {type: ChatSchema}
 });
 
 EventSchema.methods.addPlayer = function(player) {

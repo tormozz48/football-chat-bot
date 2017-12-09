@@ -1,6 +1,9 @@
 'use strict';
 
-module.exports = {
+const _ = require('lodash');
+const common = require('./common');
+
+module.exports = _.merge({}, common, {
     success: [
         (fullName) => `${fullName} будет участвовать в игре.`,
         (fullName) => `${fullName} решил побегать.`,
@@ -14,9 +17,5 @@ module.exports = {
     playersLimitExceedError: [
         () => `Не, ну куда уже. И так 12 человек`,
         () => `А уже все. Нужно было раньше подсуетиться. 12 человек.`
-    ],
-    error: [
-        () => `Не судьба! Но ты можешь попробовать еще разок.`,
-        () => `Случилось страшное. Но ты можешь поплакать в углу и написать нам.`
     ]
-};
+});

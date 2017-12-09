@@ -17,6 +17,7 @@ exports.create = async ({token, model}) => {
 
     bot.command('add', commands.playerAdd(model));
     bot.command('remove', commands.playerRemove(model));
+    bot.command('info', commands.gameInfo(model));
 
     bot.startPolling();
 };

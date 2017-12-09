@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 const config = require('config');
 const express = require('express');
 
@@ -7,6 +9,8 @@ const model = require('./model');
 const bot = require('./bot');
 
 const debug = require('debug')('src:index');
+
+require('dotenv').config({path: path.join(process.cwd(), './config/config.env')});
 
 function startServer() {
     const port = process.env.PORT || config.get('port');
@@ -23,7 +27,7 @@ function startServer() {
 model.initialize()
     .then((schemas) => {
         const token = process.env.BOT_TOKEN || config.get('bot.token');
-        const botan = bot.create({token, model: schemas});
+        bot.create({token, model: schemas});
 
         startServer();
     })

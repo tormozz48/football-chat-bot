@@ -2,11 +2,11 @@
 
 module.exports = {
     bot: {
-        token: '483957925:AAFKLlquecGE6c3KuoOiQu7DhyboRtssmjY'
+        token: ''
     },
     mongo: {
-        user: 'football',
-        password: 'football',
+        user: '',
+        password: '',
         host: 'ds135186.mlab.com',
         port: '35186',
         database: 'football'

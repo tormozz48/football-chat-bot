@@ -14,6 +14,6 @@ const UserSchema = new Schema({
 
 UserSchema.methods.fullName = function() {
     return `${this.first_name} ${this.last_name}`;
-}
+};
 
 module.exports = UserSchema;

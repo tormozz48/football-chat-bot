@@ -5,10 +5,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = require('./user');
-const ChatSchema = require('./chat');
 const errors = require('../errors/index');
 
-const MAX_PLAYERS_AMOUNT = 12
+const MAX_PLAYERS_AMOUNT = 12;
 
 const EventSchema = new Schema({
     id: Number,

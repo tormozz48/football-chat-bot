@@ -34,7 +34,7 @@ exports.initialize = async () => {
     try {
         await mongoose.connect(connectionString, connectionOptions);
         debug('Connection to database has been established successfully');
-    } catch(error) {
+    } catch (error) {
         console.error('Database connection error');
         console.error(error.message);
         throw error;

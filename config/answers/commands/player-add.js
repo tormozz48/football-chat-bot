@@ -11,8 +11,8 @@ module.exports = _.merge({}, common, {
     ],
     playerAlreadyAddedError: [
         () => `Воу-воу палехче. Больше одного раза нельзя.`,
-        (fullName) => `${fullName} ты что? Ты же уже добавился.`,
-        (fullName) => `${fullName} aстанавись! Ты уже в игре.`
+        (fullName) => `${fullName} ты что? Ты же уже добавил.`,
+        (fullName) => `${fullName} aстанавись и подумай что ты делаешь.`
     ],
     playersLimitExceedError: [
         () => `Не, ну куда уже. И так 12 человек`,

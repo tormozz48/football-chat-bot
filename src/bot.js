@@ -23,7 +23,8 @@ exports.create = ({token, model}) => {
     bot.command('add', commands.playerAdd(model)); // /add - add player to game
     bot.command('remove', commands.playerRemove(model)); // /remove - remove player from game
     bot.command('info', commands.gameInfo(model)); // /info - get game info
-    bot.command('newevent', commands.eventAdd(model)); // /event-add - add new event
+    bot.command('add_event', commands.eventAdd(model)); // /add_event - add new event
+    bot.command('remove_event', commands.eventRemove(model)); // /remove_event - remove active event
 
     bot.startPolling();
 

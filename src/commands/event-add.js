@@ -1,6 +1,6 @@
 'use strict';
 
-const moment = require('moment');
+const config = require('config');
 const errors = require('../errors/index');
 const answers = require('../../config/answers/commands/event-add');
 const utils = require('../utils');
@@ -21,7 +21,7 @@ module.exports = (model) => {
 
     return async (ctx) => {
         const {id} = ctx.message.chat;
-        const date = getEventDate();
+        const date = config.get('eventDate')();
 
         let answer;
 
@@ -44,15 +44,3 @@ module.exports = (model) => {
         }
     };
 };
-
-// TODO сделать дату события конфигурабельной, возможно унести этот метод в конфиг
-function getEventDate() {
-    const currentDate = moment.utc();
-
-    return currentDate
-        .weekday(currentDate.weekday() > 0 ? 7 : 0)
-        .hour(17)
-        .minute(30)
-        .second(0)
-        .toDate();
-}

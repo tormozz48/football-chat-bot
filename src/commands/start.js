@@ -6,7 +6,7 @@ module.exports = (model, bot) => {
         const {id, type} = ctx.message.chat;
 
         try {
-            const chat = await model.Chat.find({id});
+            const chat = await model.Chat.findOne({id});
             const admins = await bot.telegram.getChatAdministrators(id);
 
             const members = admins

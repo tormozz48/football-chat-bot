@@ -15,6 +15,11 @@ exports.createReplier = (answers) => {
     };
 };
 
-exports.formateDate = (date) => {
-    return moment(date).format('DD-MM-YYYY');
+/**
+ * Transforms date to human readable format
+ * @param {Date} date
+ * @returns {String}
+ */
+exports.formateDate = (date, format = 'DD-MM-YYYY') => {
+    return moment(date).format(format);
 };

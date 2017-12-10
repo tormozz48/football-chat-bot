@@ -16,7 +16,7 @@ const EventSchema = new Schema({
     players: {type: [UserSchema], default: []},
     players_max: {type: Number, default: MAX_PLAYERS_AMOUNT},
     active: {type: Boolean, default: true},
-    chat: {type: ChatSchema}
+    chat_id: {type: Number}
 });
 
 EventSchema.methods.addPlayer = function(player) {

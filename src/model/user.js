@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    id: Number,
-    is_bot: Boolean,
-    first_name: String,
-    last_name: String,
+    id: {type: Number},
+    is_bot: {type: Boolean, default: false},
+    first_name: {type: String, default: ''},
+    last_name: {type: String, default: ''},
     username: String,
     language_code: String
 });

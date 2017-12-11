@@ -12,7 +12,7 @@ module.exports = _.merge({}, common, {
             return [
                 `Дата игры: ${utils.formateDate(date)}`,
                 `Участники:`,
-                `${players.map((player, index) => `${index + 1}: ${player.fullName()} \n`)}`,
+                `${players.map((player, index) => `${index + 1}: ${player.fullName()}`).join('\n')}`,
                 `Всего: ${event.getPlayersAmount()}`,
                 `Осталось мест: ${event.getVacanciesAmount()}`
             ].join('\n');

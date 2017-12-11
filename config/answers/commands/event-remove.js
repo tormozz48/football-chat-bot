@@ -6,7 +6,7 @@ const utils = require('../../../src/utils');
 
 module.exports = _.merge({}, common, {
     success: [
-        (date) => `Событие на ${utils.formateDate(date, 'DD-MM-YYYY HH:mm:ss')} было удалено`
+        (date) => `Событие на ${utils.formateDate(date, 'DD-MM-YYYY')} было удалено`
     ],
     eventAlreadyRemovedError: [
         () => 'Событие уже было удалено или не было создано.'

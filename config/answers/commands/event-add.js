@@ -8,11 +8,12 @@ module.exports = _.merge({}, common, {
     success: [
         (date) => [
             'Объявление',
-            `Новая дата игры: ${utils.formateDate(date, 'DD-MM-YYYY HH:mm:ss')}`,
-            'Принять участие в игре: /add',
-            'Добавить другого из чата: /add @nickname, например: /add @a-lexx',
-            'Добавить другого нe из чата: /add username, например: /add Дима',
-            'Отменить заявку на свое участие: /remove'
+            `Следующая игра: ${utils.formateDate(date, 'DD-MM-YYYY')}`,
+            '* Принять участие в игре: /add',
+            '* Добавить другого из чата: /add @nickname',
+            '* Добавить другого нe из чата: /add username',
+            '* Отменить заявку на свое участие: /remove',
+            '* Посмотреть информацию о предстоящей игре: /info'
         ].join('\n')
     ],
     eventAlreadyAddedError: [

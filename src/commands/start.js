@@ -20,11 +20,11 @@ module.exports = (model, bot) => {
             chat
                 ? await model.Chat.update({id}, {members})
                 : await model.Chat.create({id, type, members});
+
+            ctx.reply(`Hello. I'm ${me.first_name}`);
         } catch (error) {
             console.error('Error occured on start bot');
             console.error(error.message);
         }
-
-        ctx.reply(`Hello. I'm crazy footballer ${me.first_name}`);
     };
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const startCommand = require('../../../src/commands/start');
+const startCommand = require('../../../src/commands').start;
 
 function createBotStub({me = {first_name: 'foo'}, admins = []}) {
     return {
@@ -103,14 +103,14 @@ describe('src/commands/start', () => {
         });
     });
 
-    it('should print errors if error occurred', () => {
+    it('should print errors if error occurs', () => {
         const bot = createBotStub({});
         const model = createModelStub({});
         const ctx = createCtxStub(12345);
 
         model.Chat.findOne.rejects(new Error('some db error'));
 
-        return startCommand(model, bot)(ctx).catch(() => {
+        return startCommand(model, bot)(ctx).then(() => {
             assert.calledTwice(console.error);
             assert.calledWith(console.error.secondCall, 'some db error');
         });

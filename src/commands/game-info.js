@@ -8,13 +8,17 @@ module.exports = (model) => {
 
     return async (ctx) => {
         const {id} = ctx.message.chat;
-        const player = new model.User(ctx.from);
+        let answer;
 
         try {
             const event = await model.Event.findOne({active: true, chat_id: id});
-            ctx.reply(replier.replaySuccess()(event));
+            answer = replier.replaySuccess()(event);
         } catch (error) {
-            ctx.reply(replier.replyError()(player.fullName()));
+            console.error('Error occurred on game info command');
+            console.error(error.message);
+            answer = replier.replyError()(error);
+        } finally {
+            ctx.reply(answer);
         }
     };
 };

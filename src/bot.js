@@ -5,6 +5,12 @@ const TelegrafLogger = require('telegraf-logger');
 const commandParts = require('telegraf-command-parts');
 const commands = require('./commands');
 
+/**
+ * Bot initializer
+ * @param {Object} options
+ * @param {String} options.token - bot token string
+ * @param {Object} options.model
+ */
 exports.create = ({token, model}) => {
     const bot = new Telegraf(token);
 

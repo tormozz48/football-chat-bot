@@ -1,7 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
-const generate = require('nanoid/generate');
 const errors = require('../errors/index');
 const answers = require('../../config/answers/commands/player-add');
 const utils = require('../utils');
@@ -23,22 +21,6 @@ module.exports = (model) => {
         }
     }
 
-    function findPlayer({playerName, chatMembers, defaultPlayer}) {
-        if (!playerName) {
-            return defaultPlayer;
-        }
-
-        const player = _.find(chatMembers, (member) => {
-            return `@${member.username}` === playerName || `@${member.fullName()}` === playerName;
-        });
-
-        return player || new model.User({
-            id: (-1) * generate('1234567890', 10),
-            first_name: playerName,
-            username: playerName
-        });
-    }
-
     return async (ctx) => {
         const {id} = ctx.message.chat;
         const {args} = ctx.state.command;
@@ -54,10 +36,11 @@ module.exports = (model) => {
 
             debug(`event found: ${event.date} chat_id: ${event.chat_id}`);
 
-            player = findPlayer({
-                playerName: args,
-                chatMembers: chat.members,
-                defaultPlayer: new model.User(ctx.from)
+            player = utils.findPlayer({
+                name: args,
+                availablePlayers: chat.members,
+                defaultPlayer: ctx.from,
+                createPlayer: (player) => new model.User(player)
             });
 
             debug(`player: id: ${player.id} firstName: ${player.first_name} lastName: ${player.last_name}`);

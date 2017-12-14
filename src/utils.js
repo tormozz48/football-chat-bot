@@ -2,7 +2,20 @@
 
 const _ = require('lodash');
 const moment = require('moment');
-const generate = require('nanoid/generate');
+
+function hashCode(str) {
+    let hash = 0;
+    if (str.length === 0) {
+        return hash;
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return hash;
+}
 
 exports.createReplier = (answers) => {
     function getRandomReply(groupKey) {
@@ -43,11 +56,10 @@ exports.findPlayer = ({name, availablePlayers, defaultPlayer, createPlayer}) => 
     });
 
     const newPlayer = createPlayer({
-        id: (-1) * generate('1234567890', 10),
+        id: (-1) * hashCode(name),
         first_name: name,
         username: name
     });
 
     return existedPlayer || newPlayer;
 };
-

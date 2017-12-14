@@ -1,5 +1,6 @@
 'use strict';
 
+const _ = require('lodash');
 const utils = require('../../utils');
 
 const debug = require('debug')('src:commands:common:player');
@@ -20,8 +21,8 @@ module.exports = ({model, replier, handleError, action}) => {
 
             debug(`event found: ${event.date} chat_id: ${event.chat_id}`);
 
-            player = utils.findPlayer({
-                name: args,
+            player = utils.findOrCreatePlayer({
+                name: _.trim(args),
                 availablePlayers: chat.members,
                 defaultPlayer: ctx.from,
                 createPlayer: (player) => new model.User(player)

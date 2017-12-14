@@ -3,6 +3,12 @@
 const _ = require('lodash');
 const moment = require('moment');
 
+/**
+ * Returns number hash of string
+ * @param {String} str
+ * @returns {Number}
+ * @link http://erlycoder.com/49/javascript-hash-functions-to-convert-string-into-integer-hash-
+ */
 function hashCode(str) {
     let hash = 0;
     if (str.length === 0) {
@@ -14,7 +20,7 @@ function hashCode(str) {
         hash = ((hash << 5) - hash) + char;
         hash = hash & hash;
     }
-    return hash;
+    return Math.abs(hash);
 }
 
 exports.createReplier = (answers) => {
@@ -46,7 +52,7 @@ exports.formateDate = (date, format = 'DD-MM-YYYY') => {
  * @param {Object} param.defaultPlayer - user data for default player
  * @param {Function} param.createPlayer - function which creates new User from user data
  */
-exports.findPlayer = ({name, availablePlayers, defaultPlayer, createPlayer}) => {
+exports.findOrCreatePlayer = ({name, availablePlayers, defaultPlayer, createPlayer}) => {
     if (!name) {
         return createPlayer(defaultPlayer);
     }

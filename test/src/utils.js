@@ -4,7 +4,7 @@ const _ = require('lodash');
 const utils = require('../../src/utils');
 
 describe('src/utils', () => {
-    describe('findPlayer', () => {
+    describe('findOrCreatePlayer', () => {
         function createAvailablePlayer(index, fullName = _.noop) {
             return {
                 username: `some-player-${index}`,
@@ -15,7 +15,7 @@ describe('src/utils', () => {
         }
 
         it('should return default player if name was not given', () => {
-            const player = utils.findPlayer({
+            const player = utils.findOrCreatePlayer({
                 name: undefined,
                 availablePlayers: [],
                 defaultPlayer: {
@@ -37,7 +37,7 @@ describe('src/utils', () => {
             const player1 = createAvailablePlayer(1);
             const player2 = createAvailablePlayer(2);
 
-            const player = utils.findPlayer({
+            const player = utils.findOrCreatePlayer({
                 name: '@some-player-2',
                 availablePlayers: [player1, player2],
                 defaultPlayer: undefined,
@@ -51,7 +51,7 @@ describe('src/utils', () => {
             const player1 = createAvailablePlayer(1, _.wrap('full-name1'));
             const player2 = createAvailablePlayer(2, _.wrap('full-name2'));
 
-            const player = utils.findPlayer({
+            const player = utils.findOrCreatePlayer({
                 name: 'full-name2',
                 availablePlayers: [player1, player2],
                 defaultPlayer: undefined,
@@ -62,7 +62,7 @@ describe('src/utils', () => {
         });
 
         it('should return new player with generated identifier', () => {
-            const player = utils.findPlayer({
+            const player = utils.findOrCreatePlayer({
                 name: 'some-player',
                 availablePlayers: [],
                 defaultPlayer: undefined,

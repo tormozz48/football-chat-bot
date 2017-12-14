@@ -8,20 +8,17 @@ const playerCommon = require('./common/player');
 module.exports = (model) => {
     const replier = utils.createReplier(answers);
 
-    return playerCommon({
-        model,
-        replier,
-        action: 'addPlayer',
-        handleError(error, player) {
-            console.error('Error occurred on adding player');
-            console.error(error.message);
+    function handleError(error, player) {
+        console.error('Error occurred on adding player');
+        console.error(error.message);
 
-            if (error instanceof errors.PlayerAlreadyAddedError ||
-                error instanceof errors.PlayersLimitExceedError) {
-                return replier.reply(error.message)(player.fullName());
-            } else {
-                return replier.replyError()();
-            }
+        if (error instanceof errors.PlayerAlreadyAddedError ||
+            error instanceof errors.PlayersLimitExceedError) {
+            return replier.reply(error.message)(player.fullName());
+        } else {
+            return replier.replyError()();
         }
-    });
+    }
+
+    return playerCommon({model, replier, action: 'addPlayer', handleError});
 };

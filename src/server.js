@@ -11,7 +11,7 @@ exports.start = () => {
 
     const app = express()
         .get('/ping', (req, res) => {
-            debug(`Received ping. Date: ${Date.now}`);
+            debug(`Received ping. Date: ${new Date()}`);
             res.status(200.).json({status: 'ok'});
         });
 

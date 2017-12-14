@@ -7,6 +7,9 @@ module.exports = {
     bot: {
         token: ''
     },
+    cron: {
+        serverPing: '* * * * *'
+    },
     mongo: {
         user: '',
         password: '',

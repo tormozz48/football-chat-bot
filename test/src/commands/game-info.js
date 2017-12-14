@@ -41,10 +41,11 @@ describe('src/commands/game-info', () => {
     });
 
     it('should show event information', () => {
+        const date = new Date('2017-12-13');
         const model = createModelStub({
             chat_id: 12345,
             active: true,
-            date: '13-12-2017'
+            date
         });
         const ctx = createCtxStub(12345);
 

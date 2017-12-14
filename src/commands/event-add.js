@@ -17,7 +17,7 @@ module.exports = (model) => {
         if (error instanceof errors.EventAlreadyAddedError) {
             return replier.reply(error.message)();
         } else {
-            return replier.replyError()();
+            return replier.replyError()(error);
         }
     }
 

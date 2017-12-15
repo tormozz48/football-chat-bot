@@ -8,7 +8,8 @@ module.exports = {
         token: ''
     },
     cron: {
-        serverPing: '* * * * *'
+        serverPing: '* * * * *',
+        quote: '0 12 * * *'
     },
     mongo: {
         user: '',

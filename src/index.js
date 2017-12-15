@@ -18,11 +18,12 @@ const token = process.env.BOT_TOKEN || config.get('bot.token');
     try {
         const dbModel = await model.initialize();
 
-        bot.create({token, model: dbModel});
+        const _bot = bot.create({token, model: dbModel});
 
         server.start();
 
-        jobs.serverPingJob(dbModel).start();
+        // jobs.serverPingJob(dbModel).start();
+        jobs.quoteJob(dbModel, _bot).start();
     } catch (error) {
         console.error('Critical error. Process will be terminated');
         process.exit(1);

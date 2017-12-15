@@ -5,6 +5,12 @@ Telegram bot for football weekend chat
 [![Coverage Status](https://img.shields.io/coveralls/tormozz48/football-chat-bot.svg?style=flat)](https://coveralls.io/r/tormozz48/football-chat-bot?branch=master)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/tormozz48/football-chat-bot/)
 [![Dependency Status](https://david-dm.org/tormozz48/football-chat-bot.svg)](https://david-dm.org/tormozz48/football-chat-bot)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+[![forthebadge](http://forthebadge.com/badges/built-by-developers.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/built-by-hipsters.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-git.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/badges/uses-js.svg)](http://forthebadge.com)
 
 ## Installation
 

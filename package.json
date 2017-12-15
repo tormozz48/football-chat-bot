@@ -14,7 +14,8 @@
     "coveralls": "npm i coveralls && npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "precommit": "npm run lint",
     "start-dev": "nodemon src/index.js",
-    "start-prod": "NODE_ENV=production node src/index.js"
+    "start-prod": "NODE_ENV=production node src/index.js",
+    "start": "npm run start-prod"
   },
   "repository": {
     "type": "git",

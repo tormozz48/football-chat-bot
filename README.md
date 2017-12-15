@@ -62,6 +62,7 @@ npm run start-prod
 * Launch code linting tool: `npm run lint`.
 * Launch unit-tests: `npm run test-unit`.
 * Launch code linting and unit-tests together: `npm test`.
+* Launch unit-tests with code coverage calculation: `npm run cover`.
 
 Also [code linter](https://eslint.org) checks your code before every commit.
 

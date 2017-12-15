@@ -17,7 +17,7 @@ module.exports = (model) => {
         if (error instanceof errors.EventAlreadyRemovedError) {
             return replier.reply(error.message)();
         } else {
-            return replier.replyError()();
+            return replier.replyError()(error);
         }
     }
 
@@ -41,7 +41,7 @@ module.exports = (model) => {
             debug(`remove existed event: ${event.date} for chat: ${event.chat_id}`);
             await event.remove();
 
-            answer = replier.replaySuccess()(date);
+            answer = replier.replySuccess()(date);
         } catch (error) {
             answer = handleError(error);
         } finally {

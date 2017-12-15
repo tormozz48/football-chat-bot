@@ -7,6 +7,6 @@ module.exports = () => {
     const replier = utils.createReplier(answers);
 
     return async (ctx) => {
-        ctx.reply(replier.replaySuccess()());
+        ctx.reply(replier.replySuccess()());
     };
 };

@@ -12,7 +12,7 @@ module.exports = (model) => {
 
         try {
             const event = await model.Event.findOne({active: true, chat_id: id});
-            answer = replier.replaySuccess()(event);
+            answer = replier.replySuccess()(event);
         } catch (error) {
             console.error('Error occurred on game info command');
             console.error(error.message);

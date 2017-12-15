@@ -30,7 +30,7 @@ exports.createReplier = (answers) => {
 
     return {
         reply: getRandomReply,
-        replaySuccess: () => getRandomReply('success'),
+        replySuccess: () => getRandomReply('success'),
         replyError: () => getRandomReply('error')
     };
 };

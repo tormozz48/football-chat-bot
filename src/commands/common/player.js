@@ -33,7 +33,7 @@ module.exports = ({model, replier, handleError, action}) => {
             event[action](player);
             await event.save();
 
-            answer = replier.replaySuccess()(player.fullName());
+            answer = replier.replySuccess()(player.fullName());
         } catch (error) {
             answer = handleError(error, player);
         } finally {

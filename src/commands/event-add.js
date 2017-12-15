@@ -44,7 +44,7 @@ module.exports = (model) => {
             debug(`create new event with date: ${date} for chat: ${chat.id}`);
             await model.Event.create({date, chat_id: chat.id});
 
-            answer = replier.replaySuccess()(date);
+            answer = replier.replySuccess()(date);
         } catch (error) {
             answer = handleError(error);
         } finally {

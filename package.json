@@ -47,6 +47,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.19.3",
     "mongoose": "^4.13.6",
+    "newrelic": "^2.4.2",
     "node-cron": "^1.2.1",
     "telegraf": "^3.17.1",
     "telegraf-command-parts": "^1.0.3",

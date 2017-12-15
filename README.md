@@ -3,6 +3,8 @@ Telegram bot for football weekend chat
 
 [![Build Status](https://travis-ci.org/tormozz48/football-chat-bot.svg?branch=master)](https://travis-ci.org/tormozz48/football-chat-bot)
 [![Coverage Status](https://img.shields.io/coveralls/tormozz48/football-chat-bot.svg?style=flat)](https://coveralls.io/r/tormozz48/football-chat-bot?branch=master)
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/tormozz48/football-chat-bot/)
+[![Dependency Status](https://david-dm.org/tormozz48/football-chat-bot.svg)](https://david-dm.org/tormozz48/football-chat-bot)
 
 ## Installation
 
@@ -68,4 +70,4 @@ Also [code linter](https://eslint.org) checks your code before every commit.
 
 ## License
 
-ISC
+MIT

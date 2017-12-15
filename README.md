@@ -1,53 +1,69 @@
-# football-chat-bot [![Build Status](https://travis-ci.org/tormozz48/football-chat-bot.png?branch=master)](https://travis-ci.org/tormozz48/football-chat-bot)
-
+# football-chat-bot
 Telegram bot for football weekend chat
+
+[![Build Status](https://travis-ci.org/tormozz48/football-chat-bot.svg?branch=master)](https://travis-ci.org/tormozz48/football-chat-bot)
+[![Coverage Status](https://img.shields.io/coveralls/tormozz48/football-chat-bot.svg?style=flat)](https://coveralls.io/r/tormozz48/football-chat-bot?branch=master)
 
 ## Installation
 
-This is a [Node.js](https://nodejs.org/) module available through the 
-[npm registry](https://www.npmjs.com/). It can be installed using the 
-[`npm`](https://docs.npmjs.com/getting-started/installing-npm-packages-locally)
-or 
-[`yarn`](https://yarnpkg.com/en/)
-command line tools.
+* Clone repository: `git clone https://github.com/tormozz48/football-chat-bot.git`
+* Move to repo folder: `cd football-chat-bot`
+* Install npm dependencies: `npm install`
 
-```sh
-npm install football-chat-bot --save
+## Configuration
+
+Configuration files are:
+
+* [default](./config/default.js) - default configuration file
+* [production](./config/production.js) - configuration file for production environment
+
+To use production configuration you should launch application with `NODE_ENV` envrironment variable equal to `production`. You can read more about configuration files [here](https://www.npmjs.com/package/config).
+
+### Paramenters
+
+* `port` - http server port number
+
+* `bot` - telegram bot settings
+    * `token` - unique bot token. Read more here: https://tlgrm.ru/docs/bots
+
+* `cron` -
+    * `serverPing` - cron expression for setting http-server ping interval
+
+* `mongo` - mongo database connection parameters.
+    * `user` - mongo database user.
+    * `password` - mongo database password.
+    * `host` - database host. Default: `127.0.0.1`
+    * `port` - database port. Default: `27017`
+    * `database` - name of database.
+
+* `eventDate` - function which returns date of new created event.
+
+Some of configuration parameters may be overrided by environment variables:
+
+* `BOT_TOKEN` overrides `token` parameter in `bot` config section.
+* `MONGO_USER` overrides `user` parameter in mongo database section.
+* `MONGO_PASSWORD` overrides `password` parameter in mongo database section.
+
+## Launch
+
+For development purposes it suitable to launch application in dev-mode
+with embedded [nodemon](https://www.npmjs.com/package/nodemon) hot reload functionality.
+```bash
+npm run start-dev
 ```
 
-## Tests
-
-```sh
-npm install
-npm test
+For launch in production mode you should use:
+```bash
+npm run start-prod
 ```
 
-## Dependencies
+## Development
 
-- [bluebird](http://ghub.io/bluebird): Full featured Promises/A+ implementation with exceptionally good performance
-- [config](http://ghub.io/config): Configuration control for production node deployments
-- [debug](http://ghub.io/debug): small debugging utility
-- [dotenv](http://ghub.io/dotenv): Loads environment variables from .env file
-- [express](http://ghub.io/express): Fast, unopinionated, minimalist web framework
-- [istanbul](http://ghub.io/istanbul): Yet another JS code coverage tool that computes statement, line, function and branch coverage with module loader hooks to transparently add coverage when running tests. Supports all JS coverage use cases including unit tests, server side functional tests and browser tests. Built for scale
-- [lodash](http://ghub.io/lodash): Lodash modular utilities.
-- [moment](http://ghub.io/moment): Parse, validate, manipulate, and display dates
-- [mongoose](http://ghub.io/mongoose): Mongoose MongoDB ODM
-- [nanoid](http://ghub.io/nanoid): A tiny (179 bytes), secure URL-friendly unique string ID generator
-- [telegraf](http://ghub.io/telegraf): 📡 Modern Telegram bot framework
-- [telegraf-command-parts](http://ghub.io/telegraf-command-parts): Command Parts Splitter for Telegraf
-- [telegraf-logger](http://ghub.io/telegraf-logger): A simple logging incoming updates middleware for Telegraf bot framework
+* Launch code linting tool: `npm run lint`.
+* Launch unit-tests: `npm run test-unit`.
+* Launch code linting and unit-tests together: `npm test`.
 
-## Dev Dependencies
-
-- [chai](http://ghub.io/chai): BDD/TDD assertion library for node.js and the browser. Test framework agnostic.
-- [eslint](http://ghub.io/eslint): An AST-based pattern checker for JavaScript.
-- [eslint-config-gemini-testing](http://ghub.io/eslint-config-gemini-testing): ESLint config for gemini-testing project
-- [husky](http://ghub.io/husky): Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...)
-- [mocha](http://ghub.io/mocha): simple, flexible, fun test framework
-- [nodemon](http://ghub.io/nodemon): Simple monitor script for use during development of a node.js app.
-- [sinon](http://ghub.io/sinon): JavaScript test spies, stubs and mocks.
-- [sinon-chai](http://ghub.io/sinon-chai): Extends Chai with assertions for the Sinon.JS mocking framework.
+Also [code linter](https://eslint.org) checks your code before every commit.
 
 ## License
 

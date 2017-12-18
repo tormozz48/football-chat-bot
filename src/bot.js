@@ -1,9 +1,11 @@
 'use strict';
 
+const _ = require('lodash');
 const Telegraf = require('telegraf');
 const TelegrafLogger = require('telegraf-logger');
 const commandParts = require('telegraf-command-parts');
 const commands = require('./commands');
+const recognizer = require('./wit-recognizer');
 
 /**
  * Bot initializer
@@ -14,6 +16,21 @@ const commands = require('./commands');
 exports.create = ({token, model}) => {
     const bot = new Telegraf(token);
 
+    const botCommandHandlers = {
+        start: commands.start(model, bot),
+        help: commands.help(model),
+        add: commands.playerAdd(model),
+        remove: commands.playerRemove(model),
+        info: commands.gameInfo(model),
+        event_add: commands.eventAdd(model),
+        event_remove: commands.eventRemove(model),
+        weather_forecast: commands.weatherForecast()
+    };
+
+    bot.telegram.getMe()
+        .then((botInfo) => bot.options.username = botInfo.username)
+        .catch(_.noop);
+
     const logger = new TelegrafLogger({
         format: '%updateType => @%username %firstName %lastName (%fromId): <%updateSubType> %content'
     });
@@ -21,15 +38,11 @@ exports.create = ({token, model}) => {
     bot.use(logger.middleware());
     bot.use(commandParts());
 
-    bot.start(commands.start(model, bot));
+    Object
+        .keys(botCommandHandlers)
+        .forEach((command) => bot.command(command, botCommandHandlers[command]));
 
-    bot.command('help', commands.help(model)); // /help
-    bot.command('add', commands.playerAdd(model)); // /add - add player to game
-    bot.command('remove', commands.playerRemove(model)); // /remove - remove player from game
-    bot.command('info', commands.gameInfo(model)); // /info - get game info
-    bot.command('event_add', commands.eventAdd(model)); // /event_add - add new event
-    bot.command('event_remove', commands.eventRemove(model)); // /event_remove - remove active event
-    bot.command('weather_forecast', commands.weatherForecast()); // /weater_forecast
+    bot.on('text', recognizer(botCommandHandlers));
 
     bot.startPolling();
 

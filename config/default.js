@@ -5,7 +5,8 @@ const moment = require('moment');
 module.exports = {
     port: 3000,
     bot: {
-        token: ''
+        token: '',
+        witToken: ''
     },
     cron: {
         serverPing: '* * * * *',

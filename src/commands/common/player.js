@@ -8,7 +8,8 @@ const debug = require('debug')('src:commands:common:player');
 module.exports = ({model, replier, handleError, action}) => {
     return async (ctx) => {
         const {id} = ctx.message.chat;
-        const {args} = ctx.state.command;
+        const {command = {}} = ctx.state;
+        const {args} = command;
 
         debug(`chat id: ${id}}`);
 

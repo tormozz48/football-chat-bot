@@ -2,7 +2,8 @@
 
 module.exports = {
     bot: {
-        token: ''
+        token: '',
+        witToken: ''
     },
     mongo: {
         user: '',

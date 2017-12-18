@@ -51,7 +51,8 @@
     "node-cron": "^1.2.1",
     "telegraf": "^3.17.1",
     "telegraf-command-parts": "^1.0.3",
-    "telegraf-logger": "^2.0.2"
+    "telegraf-logger": "^2.0.2",
+    "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
     "chai": "^4.1.2",

@@ -28,5 +28,8 @@ module.exports = {
             .second(0)
             .millisecond(0)
             .toDate();
+    },
+    weather: {
+        city: 'simferopol'
     }
 };

@@ -9,3 +9,5 @@ exports.gameInfo = require('./game-info');
 
 exports.eventAdd = require('./event-add');
 exports.eventRemove = require('./event-remove');
+
+exports.weatherForecast = require('./weather-forecast');

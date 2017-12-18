@@ -29,6 +29,7 @@ exports.create = ({token, model}) => {
     bot.command('info', commands.gameInfo(model)); // /info - get game info
     bot.command('event_add', commands.eventAdd(model)); // /event_add - add new event
     bot.command('event_remove', commands.eventRemove(model)); // /event_remove - remove active event
+    bot.command('weather_forecast', commands.weatherForecast()); // /weater_forecast
 
     bot.startPolling();
 

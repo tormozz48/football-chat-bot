@@ -3,7 +3,7 @@
 const config = require('config');
 const TelegrafWit = require('telegraf-wit');
 
-const RECOGNIZE_COEFFICIENT = 0.8;
+const RECOGNIZE_COEFFICIENT = 0.95;
 
 module.exports = (handlers) => {
     const token = process.env.BOT_WIT_TOKEN || config.get('bot.witToken');

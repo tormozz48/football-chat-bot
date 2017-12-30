@@ -32,5 +32,8 @@ module.exports = {
     },
     weather: {
         city: 'simferopol'
+    },
+    wit: {
+        enable: false
     }
 };

@@ -34,6 +34,6 @@ module.exports = {
         city: 'simferopol'
     },
     wit: {
-        enable: false
+        enabled: false
     }
 };

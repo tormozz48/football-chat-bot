@@ -20,6 +20,8 @@ exports.create = ({token, model}) => {
         }
     });
 
+    bot.telegram.deleteWebhook();
+
     const botCommandHandlers = {
         start: commands.start(model, bot),
         help: commands.help(model),

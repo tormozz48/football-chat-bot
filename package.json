@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "node_modules/.bin/babel src -d dist",
+    "postinstall": "npm run build",
     "lint": "eslint .",
     "test-unit": "mocha test",
     "test": "npm run lint && npm run test-unit",
@@ -38,6 +39,8 @@
   },
   "homepage": "https://github.com/tormozz48/football-chat-bot#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "bluebird": "^3.5.1",
     "config": "^1.28.1",
     "debug": "^3.1.0",
@@ -55,8 +58,6 @@
     "yahoo-weather": "^2.2.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "eslint": "^4.12.1",
     "eslint-config-gemini-testing": "^2.7.0",

@@ -7,7 +7,7 @@
     "node": ">= 8"
   },
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "node_modules/.bin/babel src -d dist",
     "postinstall": "npm run build",
     "lint": "eslint .",
     "test-unit": "mocha test",

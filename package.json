@@ -39,7 +39,9 @@
   "homepage": "https://github.com/tormozz48/football-chat-bot#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "bluebird": "^3.5.1",
     "config": "^1.28.1",
     "debug": "^3.1.0",

@@ -14,7 +14,11 @@ const recognizer = require('./wit-recognizer');
  * @param {Object} options.model
  */
 exports.create = ({token, model}) => {
-    const bot = new Telegraf(token);
+    const bot = new Telegraf(token, {
+        telegram: {
+            webhookReply: false
+        }
+    });
 
     const botCommandHandlers = {
         start: commands.start(model, bot),

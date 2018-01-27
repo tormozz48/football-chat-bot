@@ -8,7 +8,6 @@
   },
   "scripts": {
     "build": "node_modules/.bin/babel src -d dist",
-    "postinstall": "npm run build",
     "lint": "eslint .",
     "test-unit": "mocha test",
     "test": "npm run lint && npm run test-unit",

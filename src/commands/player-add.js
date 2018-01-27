@@ -16,7 +16,7 @@ module.exports = (model) => {
             error instanceof errors.PlayersLimitExceedError) {
             return replier.reply(error.message)(player.fullName());
         } else {
-            return replier.replyError()();
+            return replier.replyError()(error);
         }
     }
 

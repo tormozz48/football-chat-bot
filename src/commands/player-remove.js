@@ -15,7 +15,7 @@ module.exports = (model) => {
         if (error instanceof errors.PlayerAlreadyRemovedError) {
             return replier.reply(error.message)(player.fullName());
         } else {
-            return replier.replyError()();
+            return replier.replyError()(error);
         }
     }
 

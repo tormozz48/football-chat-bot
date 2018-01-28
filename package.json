@@ -7,6 +7,8 @@
     "node": ">= 8"
   },
   "scripts": {
+    "preinstall": "echo \"pre install\"",
+    "postinstall": "echo \"post install\"",
     "build": "node_modules/.bin/babel src -d dist",
     "lint": "eslint .",
     "test-unit": "mocha test",

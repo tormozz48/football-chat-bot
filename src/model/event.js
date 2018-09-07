@@ -30,6 +30,8 @@ const EventSchema = new Schema({
     chat_id: {
         type: Number
     }
+}, {
+    usePushEach: true
 });
 
 EventSchema.methods.addPlayer = function(player) {

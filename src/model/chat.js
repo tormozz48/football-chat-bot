@@ -16,6 +16,8 @@ const ChatSchema = new Schema({
         type: [UserSchema],
         default: []
     }
+}, {
+    usePushEach: true
 });
 
 module.exports = ChatSchema;

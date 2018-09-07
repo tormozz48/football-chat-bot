@@ -4,12 +4,27 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    id: {type: Number},
-    is_bot: {type: Boolean, default: false},
-    first_name: {type: String, default: ''},
-    last_name: {type: String, default: ''},
-    username: String,
-    language_code: String
+    id: {
+        type: Number
+    },
+    is_bot: {
+        type: Boolean,
+        default: false
+    },
+    first_name: {
+        type: String,
+        default: ''
+    },
+    last_name: {
+        type: String,
+        default: ''
+    },
+    username: {
+        type: String
+    },
+    language_code: {
+        type: String
+    }
 });
 
 UserSchema.methods.fullName = function() {

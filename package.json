@@ -54,6 +54,7 @@
     "moment": "^2.19.3",
     "mongoose": "^4.13.6",
     "node-cron": "^1.2.1",
+    "socks5-https-client": "^1.2.1",
     "telegraf": "^3.17.1",
     "telegraf-command-parts": "^1.0.3",
     "telegraf-logger": "^2.0.2",

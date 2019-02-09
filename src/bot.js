@@ -3,9 +3,11 @@
 const _ = require('lodash');
 const Telegraf = require('telegraf');
 const TelegrafLogger = require('telegraf-logger');
+const SocksAgent = require('socks5-https-client/lib/Agent');
 const commandParts = require('telegraf-command-parts');
 const commands = require('./commands');
 const recognizer = require('./wit-recognizer');
+const config = require('config');
 
 /**
  * Bot initializer
@@ -14,9 +16,18 @@ const recognizer = require('./wit-recognizer');
  * @param {Object} options.model
  */
 exports.create = ({token, model}) => {
+    const proxy = config.get('proxy');
+    const socksAgent = new SocksAgent({
+        socksHost: process.env.TELEGRAM_PROXY_HOST || proxy.host,
+        socksPort: process.env.TELEGRAM_PROXY_PORT || proxy.port,
+        socksUsername: process.env.TELEGRAM_PROXY_LOGIN || proxy.login,
+        socksPassword: process.env.TELEGRAM_PROXY_PASSWORD || proxy.password
+    });
+
     const bot = new Telegraf(token, {
         telegram: {
-            webhookReply: false
+            webhookReply: false,
+            agent: socksAgent
         }
     });
 

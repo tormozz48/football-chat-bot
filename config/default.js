@@ -35,5 +35,11 @@ module.exports = {
     },
     wit: {
         enabled: false
+    },
+    proxy: {
+        host: '127.0.0.1',
+        port: 1080,
+        login: '',
+        password: ''
     }
 };

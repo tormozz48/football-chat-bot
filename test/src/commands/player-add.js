@@ -30,7 +30,7 @@ function createModelStub(chatId, eventStub = {}) {
 }
 
 describe('src/commands/player-add', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(utils, 'findOrCreatePlayer');

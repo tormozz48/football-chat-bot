@@ -19,7 +19,7 @@ function createCtxStub(id) {
 }
 
 describe('src/commands/event-remove', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(config, 'get').returns(_.noop);

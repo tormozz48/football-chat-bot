@@ -5,7 +5,7 @@ const bot = require('../../src/bot');
 const commands = require('../../src/commands');
 
 describe('src/bot', () => {
-    const sanbox = sinon.sandbox.create();
+    const sanbox = sinon.createSandbox();
 
     beforeEach(() => {
         sanbox.stub(commands, 'start');
@@ -16,7 +16,7 @@ describe('src/bot', () => {
         sanbox.stub(commands, 'eventAdd');
         sanbox.stub(commands, 'eventRemove');
 
-        sanbox.stub(Telegraf.prototype, 'startPolling');
+        sanbox.stub(Telegraf.prototype, 'launch');
     });
 
     afterEach(() => sanbox.restore());

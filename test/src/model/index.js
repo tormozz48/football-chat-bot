@@ -8,7 +8,7 @@ const EventSchema = require('../../../src/model/event');
 const ChatSchema = require('../../../src/model/chat');
 
 describe('src/model/index', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(config, 'get').withArgs('mongo').returns({

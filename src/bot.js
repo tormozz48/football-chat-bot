@@ -31,7 +31,7 @@ exports.create = ({token, model}) => {
         }
     });
 
-    bot.telegram.deleteWebhook();
+    // bot.telegram.deleteWebhook();
 
     const botCommandHandlers = {
         start: commands.start(model, bot),
@@ -61,7 +61,7 @@ exports.create = ({token, model}) => {
 
     bot.on('text', recognizer(botCommandHandlers));
 
-    bot.startPolling();
+    bot.launch();
 
     return bot;
 };

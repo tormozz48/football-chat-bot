@@ -32,7 +32,7 @@ function createCtxStub(id, type = 'group') {
 }
 
 describe('src/commands/start', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(console, 'error');

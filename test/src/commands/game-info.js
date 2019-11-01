@@ -22,7 +22,7 @@ function createModelStub(event) {
 }
 
 describe('src/commands/game-info', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(console, 'error');

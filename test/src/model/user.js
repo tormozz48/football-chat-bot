@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const model = require('../../../src/model');
 
 describe('src/model/user', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(mongoose, 'connect');

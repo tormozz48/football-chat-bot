@@ -5,7 +5,7 @@ const errors = require('../../../src/errors');
 const model = require('../../../src/model');
 
 describe('src/model/event', () => {
-    const sandbox = sinon.sandbox.create();
+    const sandbox = sinon.createSandbox();
 
     beforeEach(() => {
         sandbox.stub(mongoose, 'connect');
